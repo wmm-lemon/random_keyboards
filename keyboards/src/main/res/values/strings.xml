@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RandomKeysTool</string>
+
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="change">更正</string>
+    <string name="blank">null</string>
+
+</resources>
