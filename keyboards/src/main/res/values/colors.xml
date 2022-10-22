@@ -14,4 +14,6 @@
     <color name="gray">#ccc</color>
     <color name="key_ok_color">#1280FA</color>
     <color name="key_ok_color_pressed">#0174f1</color>
+
+    <color name="text_color">#FF000000</color>
 </resources>

@@ -106,8 +106,8 @@ public class OfoKeyboard {
                     }
                 }
             } else {
-                Log.i(">>>>>>",primaryCode+"1");
-                Log.i(">>>>>>",(char) primaryCode+"2");
+                Log.i(">>>>>>",primaryCode+"-1");
+                Log.i(">>>>>>",(char) primaryCode+"-2");
 //                editable.insert(start,Character.toString((char) primaryCode));
                 editable.insert(start,KeyEnum.getLabelByCode(primaryCode));
             }

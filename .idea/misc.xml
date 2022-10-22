@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/gitdir/random_keyboards/keyboards/src/main/res/drawable/bg_keyboardview.xml" value="0.242" />
+        <entry key="..\:/gitdir/random_keyboards/keyboards/src/main/res/drawable/bg_keyboardview_yes.xml" value="0.1565" />
+        <entry key="..\:/gitdir/random_keyboards/keyboards/src/main/res/layout/ofokeyboardview.xml" value="0.38385416666666666" />
         <entry key="..\:/project/RandomKeysTool/app/src/main/res/layout/activity_main.xml" value="0.14479166666666668" />
         <entry key="..\:/project/RandomKeysTool/keyboards/src/main/res/drawable/bg_keyboardview.xml" value="0.132" />
         <entry key="..\:/project/RandomKeysTool/keyboards/src/main/res/drawable/bg_keyboardview_yes.xml" value="0.132" />

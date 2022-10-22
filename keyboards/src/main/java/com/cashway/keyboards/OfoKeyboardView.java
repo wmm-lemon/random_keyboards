@@ -1,6 +1,7 @@
 package com.cashway.keyboards;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,6 +12,7 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -36,7 +38,7 @@ public class OfoKeyboardView extends KeyboardView {
      */
     @Override
     public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+//        super.onDraw(canvas);
         keyboard = this.getKeyboard();
         List<Keyboard.Key> keys = null;
         if (keyboard != null) {
@@ -48,8 +50,10 @@ public class OfoKeyboardView extends KeyboardView {
                 // 数字键盘的处理
                 if (key.codes[0] == -4) {
                     drawKeyBackground(R.drawable.bg_keyboardview_yes, canvas, key);
-                    drawText(canvas, key);
+                }else {
+                    drawKeyBackground(R.drawable.bg_keyboardview, canvas, key);
                 }
+                drawText(canvas, key);
             }
         }
     }
@@ -71,21 +75,21 @@ public class OfoKeyboardView extends KeyboardView {
         Paint paint = new Paint();
         paint.setTextAlign(Paint.Align.CENTER);
 
-
         paint.setAntiAlias(true);
 
-        paint.setColor(Color.WHITE);
+        paint.setColor(Color.BLACK);
         if (key.label != null) {
-            String label = key.label.toString();
+//            String label = key.label.toString();
 
             Field field;
 
-            if (label.length() > 1 && key.codes.length < 2) {
+            if (key.codes[0] < 0) {
                 int labelTextSize = 0;
                 try {
                     field = KeyboardView.class.getDeclaredField("mLabelTextSize");
                     field.setAccessible(true);
-                    labelTextSize = (int) field.get(this);
+//                    labelTextSize = (int) field.get(this);
+                    labelTextSize = (int)dp2px((int) field.get(this));
                 } catch (NoSuchFieldException e) {
                     e.printStackTrace();
                 } catch (IllegalAccessException e) {
@@ -98,7 +102,8 @@ public class OfoKeyboardView extends KeyboardView {
                 try {
                     field = KeyboardView.class.getDeclaredField("mLabelTextSize");
                     field.setAccessible(true);
-                    keyTextSize = (int) field.get(this);
+//                    keyTextSize = (int) field.get(this);
+                    keyTextSize = (int)dp2px((int) field.get(this));
                 } catch (NoSuchFieldException e) {
                     e.printStackTrace();
                 } catch (IllegalAccessException e) {
@@ -118,5 +123,9 @@ public class OfoKeyboardView extends KeyboardView {
             key.icon.draw(canvas);
         }
 
+    }
+
+    private float dp2px(int index){
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,index, Resources.getSystem().getDisplayMetrics());
     }
 }
